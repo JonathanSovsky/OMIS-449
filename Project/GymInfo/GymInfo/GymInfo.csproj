@@ -61,14 +61,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GymData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GymData.Designer.cs">
+      <DependentUpon>GymData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GymDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GymDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GymInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GymInfo.Designer.cs">
+      <DependentUpon>GymInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GymTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GymTables.Designer.cs">
+      <DependentUpon>GymTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GymData.resx">
+      <DependentUpon>GymData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GymTables.resx">
+      <DependentUpon>GymTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,6 +101,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GymInfo.resx">
+      <DependentUpon>GymInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="GymDatabaseDataSet.xsc">
+      <DependentUpon>GymDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GymDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GymDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GymDatabaseDataSet.xss">
+      <DependentUpon>GymDatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
