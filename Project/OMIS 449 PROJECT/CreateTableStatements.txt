@@ -1,0 +1,81 @@
+CREATE TABLE [dbo].[CLUB]
+(
+	[clubId]	INT		NOT NULL	PRIMARY KEY IDENTITY(1,1),
+	[address]	char(50)	NOT NULL,
+	[city]		char(25)	NOT NULL,
+	[state]		char(25)	NOT NULL,
+	[zipCode]	char(9)		NOT NULL,
+	[email]		char(50)	NOT NULL,
+	[phone]		char(10)	NOT NULL
+)
+
+CREATE TABLE [dbo].[EMPLOYEE]
+(
+	[employeeId]	INT		NOT NULL	PRIMARY KEY IDENTITY(10,1),
+	[clubId]	INT		NOT NULL,
+	[firstName]	char(25)	NOT NULL,
+	[lastName]	char(25)	NOT NULL,	
+	[email]		char(50)	NOT NULL,
+	[phone]		char(10)	NOT NULL,
+	[address]	char(50)	NOT NULL,
+	[city]		char(25)	NOT NULL,
+	[state]		char(25)	NOT NULL,
+	[zipCode]	char(9)		NOT NULL,
+	[gender]	varChar(2)	NOT NULL,
+	[salary]	numeric(7,2)	NOT NULL,
+	[startDate]	date		NOT NULL,
+	[position]	char(25)	NOT NULL,
+	constraint	ClubFK		FOREIGN KEY(clubId)
+					REFERENCES
+					CLUB(clubId)
+					ON UPDATE NO ACTION
+					ON DELETE NO ACTION
+)
+
+CREATE TABLE [dbo].[MEMBER]
+(
+	[memberId]	INT		NOT NULL	PRIMARY KEY IDENTITY(1000,1),
+	[firstName]	char(25)	NOT NULL,
+	[lastName]	char(25)	NOT NULL,
+	[email]		char(50)	NOT NULL,
+	[address]	char(50)	NOT NULL,
+	[city]		char(25)	NOT NULL,
+	[state]		char(25)	NOT NULL,
+	[zipCode]	char(9)		NOT NULL,
+	[dOB]		date		NOT NULL,
+	[gender]	varChar(2)	NOT NULL
+)
+
+CREATE TABLE [dbo].[CLASS]
+(
+	[classId]	INT		NOT NULL	PRIMARY KEY IDENTITY(1,1),
+	[classCost]	numeric(5,2)	NOT NULL,
+	[duration]	char(25)	NOT NULL,
+	[className]	char(25)	NOT NULL
+)
+
+CREATE TABLE [dbo].[MEMBERSHIP]
+(
+	[membershipId]	INT		NOT NULL	IDENTITY(1000,1),	
+	[memberId]	INT		NOT NULL,	
+	[clubId]	INT		NOT NULL,
+	[classId]	INT		NULL,
+	[membershipCost]numeric(4,2)	NOT NULL,
+	constraint	MemberCK	PRIMARY KEY(membershipId, memberId),
+	constraint	MemberFK	FOREIGN KEY(memberId)
+					REFERENCES
+					MEMBER(memberId)
+					ON UPDATE NO ACTION
+					ON DELETE NO ACTION,
+	constraint	ClubFKK		FOREIGN KEY(clubId)
+					REFERENCES
+					CLUB(clubId)
+					ON UPDATE NO ACTION
+					ON DELETE NO ACTION,
+	constraint	ClassFK		FOREIGN KEY(classId)
+					REFERENCES
+					CLASS(classId)
+					ON UPDATE NO ACTION
+					ON DELETE NO ACTION
+)
+	
