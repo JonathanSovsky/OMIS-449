@@ -1,6 +1,8 @@
 CREATE TABLE [dbo].[CLUB]
 (
 	[clubId]	INT		NOT NULL	PRIMARY KEY IDENTITY(1,1),
+	[rent]		numeric(6,2)	NOT NULL,
+	[utilities]	numeric(5,2)	NOT NULL,
 	[address]	char(50)	NOT NULL,
 	[city]		char(25)	NOT NULL,
 	[state]		char(25)	NOT NULL,
@@ -60,7 +62,7 @@ CREATE TABLE [dbo].[MEMBERSHIP]
 	[memberId]	INT		NOT NULL,	
 	[clubId]	INT		NOT NULL,
 	[classId]	INT		NULL,
-	[membershipCost]numeric(4,2)	NOT NULL,
+	[membershipCost]numeric(5,2)	NOT NULL,
 	constraint	MemberCK	PRIMARY KEY(membershipId, memberId),
 	constraint	MemberFK	FOREIGN KEY(memberId)
 					REFERENCES
