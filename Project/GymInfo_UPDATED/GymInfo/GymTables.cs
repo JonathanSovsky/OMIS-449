@@ -30,7 +30,8 @@ namespace GymInfo
 
         private void membershipBtn_Click(object sender, EventArgs e)
         {
-            
+            GymData_Membership x = new GymData_Membership();
+            x.Show();
         }
 
         private void classBtn_Click(object sender, EventArgs e)
@@ -47,7 +48,8 @@ namespace GymInfo
 
         private void employeeBtn_Click(object sender, EventArgs e)
         {
-
+            GymData_Employees x = new GymData_Employees();
+            x.Show();
         }
     }
 }

@@ -22,11 +22,9 @@ namespace GymInfo
 
             if (textBox1.Text == "admincode")
             {
-                MessageBox.Show("Password correct");
+                MessageBox.Show("Password is correct");
 
                 GymTables x = new GymTables();
-
-                this.Hide();
 
                 x.Show();
             }

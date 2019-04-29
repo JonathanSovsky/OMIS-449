@@ -71,6 +71,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClubDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GymData_Class.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,11 +88,23 @@
     <Compile Include="GymData_Club.Designer.cs">
       <DependentUpon>GymData_Club.cs</DependentUpon>
     </Compile>
+    <Compile Include="GymData_Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GymData_Employees.Designer.cs">
+      <DependentUpon>GymData_Employees.cs</DependentUpon>
+    </Compile>
     <Compile Include="GymData_Member.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GymData_Member.Designer.cs">
       <DependentUpon>GymData_Member.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GymDate_Membership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GymDate_Membership.Designer.cs">
+      <DependentUpon>GymDate_Membership.cs</DependentUpon>
     </Compile>
     <Compile Include="GymInfo.cs">
       <SubType>Form</SubType>
@@ -106,6 +123,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MemberDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MembershipDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembershipDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GymData_Class.resx">
@@ -114,8 +136,14 @@
     <EmbeddedResource Include="GymData_Club.resx">
       <DependentUpon>GymData_Club.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GymData_Employees.resx">
+      <DependentUpon>GymData_Employees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GymData_Member.resx">
       <DependentUpon>GymData_Member.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GymDate_Membership.resx">
+      <DependentUpon>GymDate_Membership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GymTables.resx">
       <DependentUpon>GymTables.cs</DependentUpon>
@@ -154,6 +182,17 @@
     <None Include="ClubDataSet.xss">
       <DependentUpon>ClubDataSet.xsd</DependentUpon>
     </None>
+    <None Include="EmployeeDataSet.xsc">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmployeeDataSet.xss">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </None>
     <None Include="MemberDataSet.xsc">
       <DependentUpon>MemberDataSet.xsd</DependentUpon>
     </None>
@@ -164,6 +203,17 @@
     </None>
     <None Include="MemberDataSet.xss">
       <DependentUpon>MemberDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MembershipDataSet.xsc">
+      <DependentUpon>MembershipDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MembershipDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MembershipDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MembershipDataSet.xss">
+      <DependentUpon>MembershipDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
