@@ -92,7 +92,16 @@ SELECT memberId, firstName, lastName, email, address, city, state, zipCode, dOB,
               <Mapping SourceColumn="dOB" DataSetColumn="dOB" />
               <Mapping SourceColumn="gender" DataSetColumn="gender" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MemberCountQuery" Modifier="Public" Name="MemberCountQuery" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MemberCountQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(*) FROM MEMBER</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -102,7 +111,7 @@ SELECT memberId, firstName, lastName, email, address, city, state, zipCode, dOB,
   <xs:element name="MemberDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MemberDataSet" msprop:Generator_UserDSName="MemberDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MEMBER" msprop:Generator_TableClassName="MEMBERDataTable" msprop:Generator_TableVarName="tableMEMBER" msprop:Generator_TablePropName="MEMBER" msprop:Generator_RowDeletingName="MEMBERRowDeleting" msprop:Generator_RowChangingName="MEMBERRowChanging" msprop:Generator_RowEvHandlerName="MEMBERRowChangeEventHandler" msprop:Generator_RowDeletedName="MEMBERRowDeleted" msprop:Generator_UserTableName="MEMBER" msprop:Generator_RowChangedName="MEMBERRowChanged" msprop:Generator_RowEvArgName="MEMBERRowChangeEvent" msprop:Generator_RowClassName="MEMBERRow">
+        <xs:element name="MEMBER" msprop:Generator_TableClassName="MEMBERDataTable" msprop:Generator_TableVarName="tableMEMBER" msprop:Generator_RowChangedName="MEMBERRowChanged" msprop:Generator_TablePropName="MEMBER" msprop:Generator_RowDeletingName="MEMBERRowDeleting" msprop:Generator_RowChangingName="MEMBERRowChanging" msprop:Generator_RowEvHandlerName="MEMBERRowChangeEventHandler" msprop:Generator_RowDeletedName="MEMBERRowDeleted" msprop:Generator_RowClassName="MEMBERRow" msprop:Generator_UserTableName="MEMBER" msprop:Generator_RowEvArgName="MEMBERRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="memberId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmemberId" msprop:Generator_ColumnPropNameInRow="memberId" msprop:Generator_ColumnPropNameInTable="memberIdColumn" msprop:Generator_UserColumnName="memberId" type="xs:int" />

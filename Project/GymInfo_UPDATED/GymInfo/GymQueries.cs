@@ -38,6 +38,46 @@ namespace GymInfo
             {
                 membershipCostBtn.Visible = false;
             }
+
+            if (tablesComboBox.SelectedItem.Equals("Employee"))
+            {
+                employeeCostBtn.Visible = true;
+            }
+
+            else
+            {
+                employeeCostBtn.Visible = false;
+            }
+
+            if (tablesComboBox.SelectedItem.Equals("Class"))
+            {
+                classRevBtn.Visible = true;
+            }
+
+            else
+            {
+                classRevBtn.Visible = false;
+            }
+
+            if (tablesComboBox.SelectedItem.Equals("Member"))
+            {
+                memberTotalBtn.Visible = true;
+            }
+
+            else
+            {
+                memberTotalBtn.Visible = false;
+            }
+
+            if (tablesComboBox.SelectedItem.Equals("Gym"))
+            {
+                noiBtn.Visible = true;
+            }
+
+            else
+            {
+                noiBtn.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,12 +98,31 @@ namespace GymInfo
             MessageBox.Show("The gym's total membership revenue is " + cost.ToString("c"));
         }
 
-        private void cLUBBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void employeeCostBtn_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.cLUBBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.clubDataSet1);
+            decimal cost;
 
+            cost = (decimal)this.employeeTableAdapter1.EmployeeSalaryQuery();
+
+            MessageBox.Show("The gym's total employee salary cost is " + cost.ToString("c"));
+        }
+
+        private void classRevBtn_Click(object sender, EventArgs e)
+        {
+            decimal cost;
+
+            cost = (decimal)this.classTableAdapter1.ClassCostQuery();
+
+            MessageBox.Show("The gym's total class cost is " + cost.ToString("c"));
+        }
+
+        private void memberTotalBtn_Click(object sender, EventArgs e)
+        {
+            decimal total;
+
+            total = (decimal)this.memberTableAdapter1.MemberCountQuery();
+
+            MessageBox.Show("The gym has" + total.ToString() + " total members");
         }
     }
 }
