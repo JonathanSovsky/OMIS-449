@@ -185,6 +185,7 @@
             this.noiBtn.Text = "Net Operating Income";
             this.noiBtn.UseVisualStyleBackColor = true;
             this.noiBtn.Visible = false;
+            this.noiBtn.Click += new System.EventHandler(this.noiBtn_Click);
             // 
             // GymQueries
             // 

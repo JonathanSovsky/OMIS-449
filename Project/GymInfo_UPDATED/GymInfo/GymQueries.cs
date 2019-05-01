@@ -124,5 +124,28 @@ namespace GymInfo
 
             MessageBox.Show("The gym has" + total.ToString() + " total members");
         }
+
+        private void noiBtn_Click(object sender, EventArgs e)
+        {
+            decimal employee;
+            decimal club;
+            decimal membership;
+            decimal classm;
+            decimal noi;
+            decimal cost;
+            decimal revenue;
+
+            employee = (decimal)this.employeeTableAdapter1.EmployeeSalaryQuery();
+            club = (decimal)this.clubTableAdapter1.ClubExpenseQuery();
+            membership = (decimal)this.membershipTableAdapter1.MembershipCostQuery();
+            classm = (decimal)this.classTableAdapter1.ClassCostQuery();
+
+            cost = employee + club;
+            revenue = classm + membership;
+
+            noi = revenue - cost;
+
+            MessageBox.Show("Your Net Operating Income is " + noi.ToString("c"));
+        }
     }
 }
