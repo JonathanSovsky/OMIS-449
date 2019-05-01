@@ -23,5 +23,12 @@ namespace GymInfo
 
             x.Show();
         }
+
+        private void queriesBtn_Click(object sender, EventArgs e)
+        {
+            GymQueries x = new GymQueries();
+
+            x.Show();
+        }
     }
 }

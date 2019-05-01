@@ -112,6 +112,12 @@
     <Compile Include="GymInfo.Designer.cs">
       <DependentUpon>GymInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GymQueries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GymQueries.Designer.cs">
+      <DependentUpon>GymQueries.cs</DependentUpon>
+    </Compile>
     <Compile Include="GymTables.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GymDate_Membership.resx">
       <DependentUpon>GymDate_Membership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GymQueries.resx">
+      <DependentUpon>GymQueries.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GymTables.resx">
       <DependentUpon>GymTables.cs</DependentUpon>

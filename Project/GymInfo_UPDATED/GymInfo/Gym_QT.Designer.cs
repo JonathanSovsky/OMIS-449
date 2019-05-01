@@ -61,6 +61,7 @@
             this.queriesBtn.TabIndex = 2;
             this.queriesBtn.Text = "Queries";
             this.queriesBtn.UseVisualStyleBackColor = true;
+            this.queriesBtn.Click += new System.EventHandler(this.queriesBtn_Click);
             // 
             // Gym_QT
             // 
