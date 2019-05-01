@@ -281,6 +281,10 @@ namespace GymInfo {
             
             private global::System.Data.DataColumn columnclubId;
             
+            private global::System.Data.DataColumn columnrent;
+            
+            private global::System.Data.DataColumn columnutilities;
+            
             private global::System.Data.DataColumn columnaddress;
             
             private global::System.Data.DataColumn columncity;
@@ -331,6 +335,22 @@ namespace GymInfo {
             public global::System.Data.DataColumn clubIdColumn {
                 get {
                     return this.columnclubId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn rentColumn {
+                get {
+                    return this.columnrent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn utilitiesColumn {
+                get {
+                    return this.columnutilities;
                 }
             }
             
@@ -419,10 +439,12 @@ namespace GymInfo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CLUBRow AddCLUBRow(string address, string city, string state, string zipCode, string email, string phone) {
+            public CLUBRow AddCLUBRow(decimal rent, decimal utilities, string address, string city, string state, string zipCode, string email, string phone) {
                 CLUBRow rowCLUBRow = ((CLUBRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        rent,
+                        utilities,
                         address,
                         city,
                         state,
@@ -459,6 +481,8 @@ namespace GymInfo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnclubId = base.Columns["clubId"];
+                this.columnrent = base.Columns["rent"];
+                this.columnutilities = base.Columns["utilities"];
                 this.columnaddress = base.Columns["address"];
                 this.columncity = base.Columns["city"];
                 this.columnstate = base.Columns["state"];
@@ -472,6 +496,10 @@ namespace GymInfo {
             private void InitClass() {
                 this.columnclubId = new global::System.Data.DataColumn("clubId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnclubId);
+                this.columnrent = new global::System.Data.DataColumn("rent", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrent);
+                this.columnutilities = new global::System.Data.DataColumn("utilities", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnutilities);
                 this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaddress);
                 this.columncity = new global::System.Data.DataColumn("city", typeof(string), null, global::System.Data.MappingType.Element);
@@ -492,6 +520,8 @@ namespace GymInfo {
                 this.columnclubId.AllowDBNull = false;
                 this.columnclubId.ReadOnly = true;
                 this.columnclubId.Unique = true;
+                this.columnrent.AllowDBNull = false;
+                this.columnutilities.AllowDBNull = false;
                 this.columnaddress.AllowDBNull = false;
                 this.columnaddress.MaxLength = 50;
                 this.columncity.AllowDBNull = false;
@@ -652,6 +682,28 @@ namespace GymInfo {
                 }
                 set {
                     this[this.tableCLUB.clubIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal rent {
+                get {
+                    return ((decimal)(this[this.tableCLUB.rentColumn]));
+                }
+                set {
+                    this[this.tableCLUB.rentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal utilities {
+                get {
+                    return ((decimal)(this[this.tableCLUB.utilitiesColumn]));
+                }
+                set {
+                    this[this.tableCLUB.utilitiesColumn] = value;
                 }
             }
             
@@ -882,6 +934,8 @@ namespace GymInfo.ClubDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "CLUB";
             tableMapping.ColumnMappings.Add("clubId", "clubId");
+            tableMapping.ColumnMappings.Add("rent", "rent");
+            tableMapping.ColumnMappings.Add("utilities", "utilities");
             tableMapping.ColumnMappings.Add("address", "address");
             tableMapping.ColumnMappings.Add("city", "city");
             tableMapping.ColumnMappings.Add("state", "state");
@@ -891,9 +945,11 @@ namespace GymInfo.ClubDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CLUB] WHERE (([clubId] = @Original_clubId) AND ([address] = @Original_address) AND ([city] = @Original_city) AND ([state] = @Original_state) AND ([zipCode] = @Original_zipCode) AND ([email] = @Original_email) AND ([phone] = @Original_phone))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CLUB] WHERE (([clubId] = @Original_clubId) AND ([rent] = @Original_rent) AND ([utilities] = @Original_utilities) AND ([address] = @Original_address) AND ([city] = @Original_city) AND ([state] = @Original_state) AND ([zipCode] = @Original_zipCode) AND ([email] = @Original_email) AND ([phone] = @Original_phone))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_clubId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "clubId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rent", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "rent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_utilities", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "utilities", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_city", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_state", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "state", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -902,11 +958,11 @@ namespace GymInfo.ClubDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phone", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CLUB] ([address], [city], [state], [zipCode], [email], [phone]" +
-                ") VALUES (@address, @city, @state, @zipCode, @email, @phone);\r\nSELECT clubId, ad" +
-                "dress, city, state, zipCode, email, phone FROM CLUB WHERE (clubId = SCOPE_IDENTI" +
-                "TY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CLUB] ([rent], [utilities], [address], [city], [state], [zipCode], [email], [phone]) VALUES (@rent, @utilities, @address, @city, @state, @zipCode, @email, @phone);
+SELECT clubId, rent, utilities, address, city, state, zipCode, email, phone FROM CLUB WHERE (clubId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rent", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "rent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@utilities", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "utilities", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@state", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "state", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -915,9 +971,11 @@ namespace GymInfo.ClubDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CLUB] SET [address] = @address, [city] = @city, [state] = @state, [zipCode] = @zipCode, [email] = @email, [phone] = @phone WHERE (([clubId] = @Original_clubId) AND ([address] = @Original_address) AND ([city] = @Original_city) AND ([state] = @Original_state) AND ([zipCode] = @Original_zipCode) AND ([email] = @Original_email) AND ([phone] = @Original_phone));
-SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (clubId = @clubId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CLUB] SET [rent] = @rent, [utilities] = @utilities, [address] = @address, [city] = @city, [state] = @state, [zipCode] = @zipCode, [email] = @email, [phone] = @phone WHERE (([clubId] = @Original_clubId) AND ([rent] = @Original_rent) AND ([utilities] = @Original_utilities) AND ([address] = @Original_address) AND ([city] = @Original_city) AND ([state] = @Original_state) AND ([zipCode] = @Original_zipCode) AND ([email] = @Original_email) AND ([phone] = @Original_phone));
+SELECT clubId, rent, utilities, address, city, state, zipCode, email, phone FROM CLUB WHERE (clubId = @clubId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rent", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "rent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@utilities", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "utilities", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@state", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "state", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -925,6 +983,8 @@ SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (club
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_clubId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "clubId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rent", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "rent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_utilities", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "utilities", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_city", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_state", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "state", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -944,11 +1004,16 @@ SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (club
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT clubId, address, city, state, zipCode, email, phone FROM dbo.CLUB";
+            this._commandCollection[0].CommandText = "SELECT clubId, rent, utilities, address, city, state, zipCode, email, phone FROM " +
+                "dbo.CLUB";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT SUM(rent + utilities)\n \r\nFROM CLUB\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1008,43 +1073,45 @@ SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (club
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_clubId, string Original_address, string Original_city, string Original_state, string Original_zipCode, string Original_email, string Original_phone) {
+        public virtual int Delete(int Original_clubId, decimal Original_rent, decimal Original_utilities, string Original_address, string Original_city, string Original_state, string Original_zipCode, string Original_email, string Original_phone) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_clubId));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_rent));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_utilities));
             if ((Original_address == null)) {
                 throw new global::System.ArgumentNullException("Original_address");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_address));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_address));
             }
             if ((Original_city == null)) {
                 throw new global::System.ArgumentNullException("Original_city");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_city));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_city));
             }
             if ((Original_state == null)) {
                 throw new global::System.ArgumentNullException("Original_state");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_state));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_state));
             }
             if ((Original_zipCode == null)) {
                 throw new global::System.ArgumentNullException("Original_zipCode");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_zipCode));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_zipCode));
             }
             if ((Original_email == null)) {
                 throw new global::System.ArgumentNullException("Original_email");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_email));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_email));
             }
             if ((Original_phone == null)) {
                 throw new global::System.ArgumentNullException("Original_phone");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_phone));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_phone));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1066,42 +1133,44 @@ SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (club
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string address, string city, string state, string zipCode, string email, string phone) {
+        public virtual int Insert(decimal rent, decimal utilities, string address, string city, string state, string zipCode, string email, string phone) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(rent));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(utilities));
             if ((address == null)) {
                 throw new global::System.ArgumentNullException("address");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(address));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(address));
             }
             if ((city == null)) {
                 throw new global::System.ArgumentNullException("city");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(city));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(city));
             }
             if ((state == null)) {
                 throw new global::System.ArgumentNullException("state");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(state));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(state));
             }
             if ((zipCode == null)) {
                 throw new global::System.ArgumentNullException("zipCode");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(zipCode));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(zipCode));
             }
             if ((email == null)) {
                 throw new global::System.ArgumentNullException("email");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(email));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(email));
             }
             if ((phone == null)) {
                 throw new global::System.ArgumentNullException("phone");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(phone));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(phone));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1123,81 +1192,103 @@ SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (club
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string address, string city, string state, string zipCode, string email, string phone, int Original_clubId, string Original_address, string Original_city, string Original_state, string Original_zipCode, string Original_email, string Original_phone, int clubId) {
+        public virtual int Update(
+                    decimal rent, 
+                    decimal utilities, 
+                    string address, 
+                    string city, 
+                    string state, 
+                    string zipCode, 
+                    string email, 
+                    string phone, 
+                    int Original_clubId, 
+                    decimal Original_rent, 
+                    decimal Original_utilities, 
+                    string Original_address, 
+                    string Original_city, 
+                    string Original_state, 
+                    string Original_zipCode, 
+                    string Original_email, 
+                    string Original_phone, 
+                    int clubId) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(rent));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(utilities));
             if ((address == null)) {
                 throw new global::System.ArgumentNullException("address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(address));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(address));
             }
             if ((city == null)) {
                 throw new global::System.ArgumentNullException("city");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(city));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(city));
             }
             if ((state == null)) {
                 throw new global::System.ArgumentNullException("state");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(state));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(state));
             }
             if ((zipCode == null)) {
                 throw new global::System.ArgumentNullException("zipCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(zipCode));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(zipCode));
             }
             if ((email == null)) {
                 throw new global::System.ArgumentNullException("email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(email));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(email));
             }
             if ((phone == null)) {
                 throw new global::System.ArgumentNullException("phone");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(phone));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(phone));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_clubId));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_clubId));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_rent));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_utilities));
             if ((Original_address == null)) {
                 throw new global::System.ArgumentNullException("Original_address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_address));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_address));
             }
             if ((Original_city == null)) {
                 throw new global::System.ArgumentNullException("Original_city");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_city));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_city));
             }
             if ((Original_state == null)) {
                 throw new global::System.ArgumentNullException("Original_state");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_state));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_state));
             }
             if ((Original_zipCode == null)) {
                 throw new global::System.ArgumentNullException("Original_zipCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_zipCode));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_zipCode));
             }
             if ((Original_email == null)) {
                 throw new global::System.ArgumentNullException("Original_email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_email));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_email));
             }
             if ((Original_phone == null)) {
                 throw new global::System.ArgumentNullException("Original_phone");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_phone));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_phone));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(clubId));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(clubId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1218,8 +1309,53 @@ SELECT clubId, address, city, state, zipCode, email, phone FROM CLUB WHERE (club
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string address, string city, string state, string zipCode, string email, string phone, int Original_clubId, string Original_address, string Original_city, string Original_state, string Original_zipCode, string Original_email, string Original_phone) {
-            return this.Update(address, city, state, zipCode, email, phone, Original_clubId, Original_address, Original_city, Original_state, Original_zipCode, Original_email, Original_phone, Original_clubId);
+        public virtual int Update(
+                    decimal rent, 
+                    decimal utilities, 
+                    string address, 
+                    string city, 
+                    string state, 
+                    string zipCode, 
+                    string email, 
+                    string phone, 
+                    int Original_clubId, 
+                    decimal Original_rent, 
+                    decimal Original_utilities, 
+                    string Original_address, 
+                    string Original_city, 
+                    string Original_state, 
+                    string Original_zipCode, 
+                    string Original_email, 
+                    string Original_phone) {
+            return this.Update(rent, utilities, address, city, state, zipCode, email, phone, Original_clubId, Original_rent, Original_utilities, Original_address, Original_city, Original_state, Original_zipCode, Original_email, Original_phone, Original_clubId);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<decimal> ClubExpenseQuery() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<decimal>();
+            }
+            else {
+                return new global::System.Nullable<decimal>(((decimal)(returnValue)));
+            }
         }
     }
     

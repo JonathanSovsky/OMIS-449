@@ -69,7 +69,17 @@ SELECT membershipId, memberId, clubId, classId, membershipCost FROM MEMBERSHIP W
               <Mapping SourceColumn="classId" DataSetColumn="classId" />
               <Mapping SourceColumn="membershipCost" DataSetColumn="membershipCost" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MembershipCostQuery" Modifier="Public" Name="MembershipCostQuery" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MembershipCostQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT SUM(membershipCost) AS Expr1
+FROM   MEMBERSHIP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -79,7 +89,7 @@ SELECT membershipId, memberId, clubId, classId, membershipCost FROM MEMBERSHIP W
   <xs:element name="MembershipDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MembershipDataSet" msprop:Generator_UserDSName="MembershipDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MEMBERSHIP" msprop:Generator_TableClassName="MEMBERSHIPDataTable" msprop:Generator_TableVarName="tableMEMBERSHIP" msprop:Generator_TablePropName="MEMBERSHIP" msprop:Generator_RowDeletingName="MEMBERSHIPRowDeleting" msprop:Generator_RowChangingName="MEMBERSHIPRowChanging" msprop:Generator_RowEvHandlerName="MEMBERSHIPRowChangeEventHandler" msprop:Generator_RowDeletedName="MEMBERSHIPRowDeleted" msprop:Generator_UserTableName="MEMBERSHIP" msprop:Generator_RowChangedName="MEMBERSHIPRowChanged" msprop:Generator_RowEvArgName="MEMBERSHIPRowChangeEvent" msprop:Generator_RowClassName="MEMBERSHIPRow">
+        <xs:element name="MEMBERSHIP" msprop:Generator_TableClassName="MEMBERSHIPDataTable" msprop:Generator_TableVarName="tableMEMBERSHIP" msprop:Generator_RowChangedName="MEMBERSHIPRowChanged" msprop:Generator_TablePropName="MEMBERSHIP" msprop:Generator_RowDeletingName="MEMBERSHIPRowDeleting" msprop:Generator_RowChangingName="MEMBERSHIPRowChanging" msprop:Generator_RowEvHandlerName="MEMBERSHIPRowChangeEventHandler" msprop:Generator_RowDeletedName="MEMBERSHIPRowDeleted" msprop:Generator_RowClassName="MEMBERSHIPRow" msprop:Generator_UserTableName="MEMBERSHIP" msprop:Generator_RowEvArgName="MEMBERSHIPRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="membershipId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmembershipId" msprop:Generator_ColumnPropNameInRow="membershipId" msprop:Generator_ColumnPropNameInTable="membershipIdColumn" msprop:Generator_UserColumnName="membershipId" type="xs:int" />

@@ -24,7 +24,7 @@ namespace GymInfo
             {
                 MessageBox.Show("Password is correct");
 
-                GymTables x = new GymTables();
+                Gym_QT x = new Gym_QT();
 
                 x.Show();
             }

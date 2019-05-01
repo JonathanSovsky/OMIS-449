@@ -57,3 +57,4 @@ C:\Users\irism\Documents\GitHub\OMIS-449\Project\GymInfo_UPDATED\GymInfo\obj\Deb
 C:\Users\irism\Documents\GitHub\OMIS-449\Project\GymInfo_UPDATED\GymInfo\obj\Debug\GymInfo.pdb
 C:\Users\irism\Documents\GitHub\OMIS-449\Project\GymInfo_UPDATED\GymInfo\obj\Debug\GymInfo.GymData_Membership.resources
 C:\Users\irism\Documents\GitHub\OMIS-449\Project\GymInfo_UPDATED\GymInfo\obj\Debug\GymInfo.GymData_Employees.resources
+C:\Users\irism\Documents\GitHub\OMIS-449\Project\GymInfo_UPDATED\GymInfo\obj\Debug\GymInfo.Gym_QT.resources

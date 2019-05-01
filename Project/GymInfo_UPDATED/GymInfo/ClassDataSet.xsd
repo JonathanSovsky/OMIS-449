@@ -62,7 +62,18 @@ SELECT classId, classCost, duration, className FROM CLASS WHERE (classId = @clas
               <Mapping SourceColumn="duration" DataSetColumn="duration" />
               <Mapping SourceColumn="className" DataSetColumn="className" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ClassCostQuery" Modifier="Public" Name="ClassCostQuery" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ClassCostQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT SUM(CLASS.classCost) AS Expr1
+FROM   MEMBERSHIP INNER JOIN
+             CLASS ON MEMBERSHIP.classId = CLASS.classId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -72,7 +83,7 @@ SELECT classId, classCost, duration, className FROM CLASS WHERE (classId = @clas
   <xs:element name="ClassDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ClassDataSet" msprop:Generator_UserDSName="ClassDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CLASS" msprop:Generator_TableClassName="CLASSDataTable" msprop:Generator_TableVarName="tableCLASS" msprop:Generator_TablePropName="CLASS" msprop:Generator_RowDeletingName="CLASSRowDeleting" msprop:Generator_RowChangingName="CLASSRowChanging" msprop:Generator_RowEvHandlerName="CLASSRowChangeEventHandler" msprop:Generator_RowDeletedName="CLASSRowDeleted" msprop:Generator_UserTableName="CLASS" msprop:Generator_RowChangedName="CLASSRowChanged" msprop:Generator_RowEvArgName="CLASSRowChangeEvent" msprop:Generator_RowClassName="CLASSRow">
+        <xs:element name="CLASS" msprop:Generator_TableClassName="CLASSDataTable" msprop:Generator_TableVarName="tableCLASS" msprop:Generator_RowChangedName="CLASSRowChanged" msprop:Generator_TablePropName="CLASS" msprop:Generator_RowDeletingName="CLASSRowDeleting" msprop:Generator_RowChangingName="CLASSRowChanging" msprop:Generator_RowEvHandlerName="CLASSRowChangeEventHandler" msprop:Generator_RowDeletedName="CLASSRowDeleted" msprop:Generator_RowClassName="CLASSRow" msprop:Generator_UserTableName="CLASS" msprop:Generator_RowEvArgName="CLASSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="classId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnclassId" msprop:Generator_ColumnPropNameInRow="classId" msprop:Generator_ColumnPropNameInTable="classIdColumn" msprop:Generator_UserColumnName="classId" type="xs:int" />
