@@ -70,6 +70,65 @@ SELECT membershipId, memberId, clubId, classId, membershipCost FROM MEMBERSHIP W
               <Mapping SourceColumn="membershipCost" DataSetColumn="membershipCost" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MemberCountClub1Query" Modifier="Public" Name="MemberCountClub1Query" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="MemberCountClub1Query">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(memberId) AS 'Members in this Club'
+FROM   MEMBERSHIP
+WHERE (clubId = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MemberCountClub2Query" Modifier="Public" Name="MemberCountClub2Query" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MemberCountClub2Query">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(memberId) AS 'Members in this Club'
+FROM   MEMBERSHIP
+WHERE (clubId = 2)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MemberCountClub3Query" Modifier="Public" Name="MemberCountClub3Query" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="MemberCountClub3Query">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(memberId) AS 'Members in this Club'
+FROM   MEMBERSHIP
+WHERE (clubId = 3);</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MemberCountClub4Query" Modifier="Public" Name="MemberCountClub4Query" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="MemberCountClub4Query">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(memberId) AS 'Members in this Club'
+FROM   MEMBERSHIP
+WHERE (clubId = 4)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MemberCountClub5Query" Modifier="Public" Name="MemberCountClub5Query" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="MemberCountClub5Query">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(memberId) AS 'Members in this Club'
+FROM   MEMBERSHIP
+WHERE (clubId = 5)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MembershipClassesQuery" Modifier="Public" Name="MembershipClassesQuery" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="MembershipClassesQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CAST(COUNT(classId) AS decimal(10, 2)) / CAST(COUNT(membershipId) AS decimal(10, 2)) AS 'Percentage of Members Taking Classes'
+FROM   MEMBERSHIP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MembershipCostQuery" Modifier="Public" Name="MembershipCostQuery" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MembershipCostQuery">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -89,7 +148,7 @@ FROM   MEMBERSHIP</CommandText>
   <xs:element name="MembershipDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MembershipDataSet" msprop:Generator_UserDSName="MembershipDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MEMBERSHIP" msprop:Generator_TableClassName="MEMBERSHIPDataTable" msprop:Generator_TableVarName="tableMEMBERSHIP" msprop:Generator_RowChangedName="MEMBERSHIPRowChanged" msprop:Generator_TablePropName="MEMBERSHIP" msprop:Generator_RowDeletingName="MEMBERSHIPRowDeleting" msprop:Generator_RowChangingName="MEMBERSHIPRowChanging" msprop:Generator_RowEvHandlerName="MEMBERSHIPRowChangeEventHandler" msprop:Generator_RowDeletedName="MEMBERSHIPRowDeleted" msprop:Generator_RowClassName="MEMBERSHIPRow" msprop:Generator_UserTableName="MEMBERSHIP" msprop:Generator_RowEvArgName="MEMBERSHIPRowChangeEvent">
+        <xs:element name="MEMBERSHIP" msprop:Generator_TableClassName="MEMBERSHIPDataTable" msprop:Generator_TableVarName="tableMEMBERSHIP" msprop:Generator_TablePropName="MEMBERSHIP" msprop:Generator_RowDeletingName="MEMBERSHIPRowDeleting" msprop:Generator_RowChangingName="MEMBERSHIPRowChanging" msprop:Generator_RowEvHandlerName="MEMBERSHIPRowChangeEventHandler" msprop:Generator_RowDeletedName="MEMBERSHIPRowDeleted" msprop:Generator_UserTableName="MEMBERSHIP" msprop:Generator_RowChangedName="MEMBERSHIPRowChanged" msprop:Generator_RowEvArgName="MEMBERSHIPRowChangeEvent" msprop:Generator_RowClassName="MEMBERSHIPRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="membershipId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmembershipId" msprop:Generator_ColumnPropNameInRow="membershipId" msprop:Generator_ColumnPropNameInTable="membershipIdColumn" msprop:Generator_UserColumnName="membershipId" type="xs:int" />

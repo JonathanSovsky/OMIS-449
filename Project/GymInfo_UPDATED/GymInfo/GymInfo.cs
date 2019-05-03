@@ -27,6 +27,8 @@ namespace GymInfo
                 Gym_QT x = new Gym_QT();
 
                 x.Show();
+
+                this.Hide();
             }
             else
             {

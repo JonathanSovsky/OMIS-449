@@ -135,6 +135,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MemberDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MembershipDataSet.cs">
+      <DependentUpon>MembershipDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MembershipDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

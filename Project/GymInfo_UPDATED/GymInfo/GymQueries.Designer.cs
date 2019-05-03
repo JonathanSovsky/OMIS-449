@@ -46,6 +46,10 @@
             this.memberDataSet1 = new GymInfo.MemberDataSet();
             this.memberTableAdapter1 = new GymInfo.MemberDataSetTableAdapters.MEMBERTableAdapter();
             this.noiBtn = new System.Windows.Forms.Button();
+            this.clubMembersBtn = new System.Windows.Forms.Button();
+            this.percentBtn = new System.Windows.Forms.Button();
+            this.eachClubBtn = new System.Windows.Forms.Button();
+            this.employeeNumBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.clubDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membershipDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataSet1)).BeginInit();
@@ -187,11 +191,59 @@
             this.noiBtn.Visible = false;
             this.noiBtn.Click += new System.EventHandler(this.noiBtn_Click);
             // 
+            // clubMembersBtn
+            // 
+            this.clubMembersBtn.Location = new System.Drawing.Point(560, 44);
+            this.clubMembersBtn.Name = "clubMembersBtn";
+            this.clubMembersBtn.Size = new System.Drawing.Size(131, 73);
+            this.clubMembersBtn.TabIndex = 8;
+            this.clubMembersBtn.Text = "Number of members in each club";
+            this.clubMembersBtn.UseVisualStyleBackColor = true;
+            this.clubMembersBtn.Visible = false;
+            this.clubMembersBtn.Click += new System.EventHandler(this.clubMembersBtn_Click);
+            // 
+            // percentBtn
+            // 
+            this.percentBtn.Location = new System.Drawing.Point(560, 320);
+            this.percentBtn.Name = "percentBtn";
+            this.percentBtn.Size = new System.Drawing.Size(131, 73);
+            this.percentBtn.TabIndex = 9;
+            this.percentBtn.Text = "Percent of Members taking classes";
+            this.percentBtn.UseVisualStyleBackColor = true;
+            this.percentBtn.Visible = false;
+            this.percentBtn.Click += new System.EventHandler(this.percentBtn_Click);
+            // 
+            // eachClubBtn
+            // 
+            this.eachClubBtn.Location = new System.Drawing.Point(560, 44);
+            this.eachClubBtn.Name = "eachClubBtn";
+            this.eachClubBtn.Size = new System.Drawing.Size(131, 73);
+            this.eachClubBtn.TabIndex = 10;
+            this.eachClubBtn.Text = "Expenses of Each Club";
+            this.eachClubBtn.UseVisualStyleBackColor = true;
+            this.eachClubBtn.Visible = false;
+            this.eachClubBtn.Click += new System.EventHandler(this.eachClubBtn_Click);
+            // 
+            // employeeNumBtn
+            // 
+            this.employeeNumBtn.Location = new System.Drawing.Point(560, 44);
+            this.employeeNumBtn.Name = "employeeNumBtn";
+            this.employeeNumBtn.Size = new System.Drawing.Size(131, 73);
+            this.employeeNumBtn.TabIndex = 11;
+            this.employeeNumBtn.Text = "Number of Employees in each club";
+            this.employeeNumBtn.UseVisualStyleBackColor = true;
+            this.employeeNumBtn.Visible = false;
+            this.employeeNumBtn.Click += new System.EventHandler(this.employeeNumBtn_Click);
+            // 
             // GymQueries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 450);
+            this.Controls.Add(this.employeeNumBtn);
+            this.Controls.Add(this.eachClubBtn);
+            this.Controls.Add(this.percentBtn);
+            this.Controls.Add(this.clubMembersBtn);
             this.Controls.Add(this.noiBtn);
             this.Controls.Add(this.memberTotalBtn);
             this.Controls.Add(this.classRevBtn);
@@ -230,5 +282,9 @@
         private MemberDataSetTableAdapters.MEMBERTableAdapter memberTableAdapter1;
         private System.Windows.Forms.Button memberTotalBtn;
         private System.Windows.Forms.Button noiBtn;
+        private System.Windows.Forms.Button clubMembersBtn;
+        private System.Windows.Forms.Button percentBtn;
+        private System.Windows.Forms.Button eachClubBtn;
+        private System.Windows.Forms.Button employeeNumBtn;
     }
 }
