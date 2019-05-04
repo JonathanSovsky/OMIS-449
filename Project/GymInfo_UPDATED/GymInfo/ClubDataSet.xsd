@@ -88,56 +88,6 @@ SELECT clubId, rent, utilities, address, city, state, zipCode, email, phone FROM
               <Mapping SourceColumn="phone" DataSetColumn="phone" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Club1ExpensesQueries" Modifier="Public" Name="Club1ExpensesQueries" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Club1ExpensesQueries">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(rent + utilities) AS Expr1
-FROM   CLUB
-WHERE (clubId = 1)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Club2ExpensesQueries" Modifier="Public" Name="Club2ExpensesQueries" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Club2ExpensesQueries">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(rent + utilities) AS Expr1
-FROM   CLUB
-WHERE (clubId = 2)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Club3ExpensesQueries" Modifier="Public" Name="Club3ExpensesQueries" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Club3ExpensesQueries">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(rent + utilities) AS Expr1
-FROM   CLUB
-WHERE (clubId = 3)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Club4ExpensesQueries" Modifier="Public" Name="Club4ExpensesQueries" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="Club4ExpensesQueries">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(rent + utilities) AS Expr1
-FROM   CLUB
-WHERE (clubId = 4)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Club5ExpensesQueries" Modifier="Public" Name="Club5ExpensesQueries" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Club5ExpensesQueries">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(rent + utilities) AS Expr1
-FROM   CLUB
-WHERE (clubId = 5)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
               <DbSource ConnectionRef="GymDatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ClubExpenseQuery" Modifier="Public" Name="ClubExpenseQuery" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ClubExpenseQuery">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -159,7 +109,7 @@ FROM CLUB
   <xs:element name="ClubDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ClubDataSet" msprop:Generator_UserDSName="ClubDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CLUB" msprop:Generator_TableClassName="CLUBDataTable" msprop:Generator_TableVarName="tableCLUB" msprop:Generator_TablePropName="CLUB" msprop:Generator_RowDeletingName="CLUBRowDeleting" msprop:Generator_RowChangingName="CLUBRowChanging" msprop:Generator_RowEvHandlerName="CLUBRowChangeEventHandler" msprop:Generator_RowDeletedName="CLUBRowDeleted" msprop:Generator_UserTableName="CLUB" msprop:Generator_RowChangedName="CLUBRowChanged" msprop:Generator_RowEvArgName="CLUBRowChangeEvent" msprop:Generator_RowClassName="CLUBRow">
+        <xs:element name="CLUB" msprop:Generator_TableClassName="CLUBDataTable" msprop:Generator_TableVarName="tableCLUB" msprop:Generator_RowChangedName="CLUBRowChanged" msprop:Generator_TablePropName="CLUB" msprop:Generator_RowDeletingName="CLUBRowDeleting" msprop:Generator_RowChangingName="CLUBRowChanging" msprop:Generator_RowEvHandlerName="CLUBRowChangeEventHandler" msprop:Generator_RowDeletedName="CLUBRowDeleted" msprop:Generator_RowClassName="CLUBRow" msprop:Generator_UserTableName="CLUB" msprop:Generator_RowEvArgName="CLUBRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="clubId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnclubId" msprop:Generator_ColumnPropNameInRow="clubId" msprop:Generator_ColumnPropNameInTable="clubIdColumn" msprop:Generator_UserColumnName="clubId" type="xs:int" />
